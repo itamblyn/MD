@@ -12,10 +12,10 @@
         integer n, i, j
         parameter (n=1000000)
         integer natom, timestep
-        real*8 x, y, z
-        real*8 ax, ay, az
-        character*2 typat
-        character*128 fin
+        real(8) x, y, z
+        real(8) ax, ay, az
+        character(2) typat
+        character(128) fin
 
         ! Get xyz fname & lattice constants from the user
         write(*,*) 'Name of xyz file'
