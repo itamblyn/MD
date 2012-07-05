@@ -1,0 +1,77 @@
+#!/bin/tcsh
+
+set hist=$1
+set rdf=$2
+set normalize=3
+
+if (!(-e $1)) then
+   echo "Could not find hist '" $1 "'"
+   exit(-1)
+endif
+
+if (!(-e $2)) then
+   echo "Could not find rdf '" $2 "'"
+   exit(-1)
+endif
+
+set cmd="gnuplot.scr"
+cat > $cmd << END
+set terminal x11
+set xrange [0:6.]
+set yrange [0:*]
+set xlabel 'Distance [A]'
+set style data lines
+set pointsize 2 
+set nokey
+plot "$hist" u 1:2,   "$hist" u 1:3,  "$hist" u 1:4,  "$hist" u 1:5,  "$hist" u 1:6, \
+"$hist" u 1:7,   "$hist" u 1:8,   "$hist" u 1:9 with lines lt -1,   "$hist" u 1:10,  "$hist" u 1:11,  \
+"$hist" u 1:12,  "$hist" u 1:13 with lines lt -1,  "$hist" u 1:14,  "$hist" u 1:15,  "$hist" u 1:16,  \
+"$hist" u 1:17,  "$hist" u 1:18,  "$hist" u 1:19,  "$hist" u 1:20,  "$hist" u 1:21,  \
+"$hist" u 1:22,  "$hist" u 1:23,  "$hist" u 1:24,  "$hist" u 1:25,  "$hist" u 1:26,  \
+"$hist" u 1:27,  "$hist" u 1:28,  "$hist" u 1:29,  "$hist" u 1:30,  "$hist" u 1:31,  \
+"$hist" u 1:32,  "$hist" u 1:33,  "$hist" u 1:34,  "$hist" u 1:35,  "$hist" u 1:36,  \
+"$hist" u 1:37,  "$hist" u 1:38,  "$hist" u 1:39,  "$hist" u 1:40,  "$hist" u 1:41,  \
+"$hist" u 1:42,  "$hist" u 1:43,  "$hist" u 1:44,  "$hist" u 1:45,  "$hist" u 1:46,  \
+"$hist" u 1:47,  "$hist" u 1:48,  "$hist" u 1:49,  "$hist" u 1:50,  "$hist" u 1:51,  \
+"$hist" u 1:52,  "$hist" u 1:53,  "$hist" u 1:54,  "$hist" u 1:55,  "$hist" u 1:56,  \
+"$hist" u 1:57,  "$hist" u 1:58,  "$hist" u 1:59,  "$hist" u 1:60,  "$hist" u 1:61,  \
+"$hist" u 1:62,  "$hist" u 1:63,  "$hist" u 1:64,  "$hist" u 1:65,  "$hist" u 1:66,  \
+"$hist" u 1:67,  "$hist" u 1:68,  "$hist" u 1:69,  "$hist" u 1:70,  "$hist" u 1:71,  \
+"$hist" u 1:72,  "$hist" u 1:73,  "$hist" u 1:74,  "$hist" u 1:75,  "$hist" u 1:76,  \
+"$hist" u 1:77,  "$hist" u 1:78,  "$hist" u 1:79,  "$hist" u 1:80,  "$hist" u 1:81,  \
+"$hist" u 1:82,  "$hist" u 1:83,  "$hist" u 1:84,  "$hist" u 1:85,  "$hist" u 1:86,  \
+"$hist" u 1:77,  "$hist" u 1:88,  "$hist" u 1:89,  "$hist" u 1:90,  "$hist" u 1:91,  \
+"$hist" u 1:92,  "$hist" u 1:93,  "$hist" u 1:94,  "$hist" u 1:95,  "$hist" u 1:96,  \
+"$hist" u 1:97,  "$hist" u 1:98,  "$hist" u 1:99,  "$hist" u 1:100, \
+"$rdf" u 1:(\$2/$normalize) lt -1
+pause -1 "Showing $hist.\nPress enter to quit"
+set terminal png
+set output 'hist_rdf.png'
+plot "$hist" u 1:2,   "$hist" u 1:3,  "$hist" u 1:4,  "$hist" u 1:5,  "$hist" u 1:6, \
+"$hist" u 1:7,   "$hist" u 1:8,   "$hist" u 1:9 with lines lt -1,   "$hist" u 1:10,  "$hist" u 1:11,  \
+"$hist" u 1:12,  "$hist" u 1:13 with lines lt -1,  "$hist" u 1:14,  "$hist" u 1:15,  "$hist" u 1:16,  \
+"$hist" u 1:17,  "$hist" u 1:18,  "$hist" u 1:19,  "$hist" u 1:20,  "$hist" u 1:21,  \
+"$hist" u 1:22,  "$hist" u 1:23,  "$hist" u 1:24,  "$hist" u 1:25,  "$hist" u 1:26,  \
+"$hist" u 1:27,  "$hist" u 1:28,  "$hist" u 1:29,  "$hist" u 1:30,  "$hist" u 1:31,  \
+"$hist" u 1:32,  "$hist" u 1:33,  "$hist" u 1:34,  "$hist" u 1:35,  "$hist" u 1:36,  \
+"$hist" u 1:37,  "$hist" u 1:38,  "$hist" u 1:39,  "$hist" u 1:40,  "$hist" u 1:41,  \
+"$hist" u 1:42,  "$hist" u 1:43,  "$hist" u 1:44,  "$hist" u 1:45,  "$hist" u 1:46,  \
+"$hist" u 1:47,  "$hist" u 1:48,  "$hist" u 1:49,  "$hist" u 1:50,  "$hist" u 1:51,  \
+"$hist" u 1:52,  "$hist" u 1:53,  "$hist" u 1:54,  "$hist" u 1:55,  "$hist" u 1:56,  \
+"$hist" u 1:57,  "$hist" u 1:58,  "$hist" u 1:59,  "$hist" u 1:60,  "$hist" u 1:61,  \
+"$hist" u 1:62,  "$hist" u 1:63,  "$hist" u 1:64,  "$hist" u 1:65,  "$hist" u 1:66,  \
+"$hist" u 1:67,  "$hist" u 1:68,  "$hist" u 1:69,  "$hist" u 1:70,  "$hist" u 1:71,  \
+"$hist" u 1:72,  "$hist" u 1:73,  "$hist" u 1:74,  "$hist" u 1:75,  "$hist" u 1:76,  \
+"$hist" u 1:77,  "$hist" u 1:78,  "$hist" u 1:79,  "$hist" u 1:80,  "$hist" u 1:81,  \
+"$hist" u 1:82,  "$hist" u 1:83,  "$hist" u 1:84,  "$hist" u 1:85,  "$hist" u 1:86,  \
+"$hist" u 1:77,  "$hist" u 1:88,  "$hist" u 1:89,  "$hist" u 1:90,  "$hist" u 1:91,  \
+"$hist" u 1:92,  "$hist" u 1:93,  "$hist" u 1:94,  "$hist" u 1:95,  "$hist" u 1:96,  \
+"$hist" u 1:97,  "$hist" u 1:98,  "$hist" u 1:99,  "$hist" u 1:100, \
+"$rdf" u 1:(\$2/$normalize) lt -1
+quit
+END
+
+
+gnuplot $cmd
+
+\rm $cmd

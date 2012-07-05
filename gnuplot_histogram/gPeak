@@ -1,0 +1,28 @@
+#!/bin/tcsh
+
+set file=$1
+set scale=$2
+
+if (!(-e $1)) then
+   echo "Could not find file '" $1 "'"
+   exit(-1)
+endif
+
+set cmd="gnuplot.scr"
+cat > $cmd << END
+set data style linespoints
+set xlabel 'density (rs)'
+set xrange [3.06:0.5]
+set yrange [0.5:*]
+set ylabel 'r/r$scale'
+set nokey
+plot "$file" u 1:(\$2/\$$scale), "$file" u 1:(\$3/\$$scale), "$file" u 1:(\$4/\$$scale), "$file" u 1:(\$5/\$$scale), "$file" u 1:(\$6/\$$scale), "$file" u 1:(\$7/\$$scale), "$file" u 1:(\$8/\$$scale), "$file" u 1:(\$9/\$$scale), "$file" u 1:(\$10/\$$scale), "$file" u 1:(\$11/\$$scale), "$file" u 1:(\$12/\$$scale), "$file" u 1:(\$13/\$$scale), "$file" u 1:(\$14/\$$scale), "$file" u 1:(\$15/\$$scale), "$file" u 1:(\$16/\$$scale), "$file" u 1:(\$17/\$$scale), "$file" u 1:(\$18/\$$scale), "$file" u 1:(\$19/\$$scale), "$file" u 1:(\$20/\$$scale), "$file" u 1:(\$21/\$$scale),"$file" u 1:(\$22/\$$scale),"$file" u 1:(\$23/\$$scale),"$file" u 1:(\$24/\$$scale),"$file" u 1:(\$25/\$$scale)
+
+pause -1 "Showing $file.\nPress enter to quit"
+quit
+END
+
+
+gnuplot $cmd
+
+\rm $cmd
