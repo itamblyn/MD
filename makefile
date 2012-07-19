@@ -4,6 +4,9 @@ msd: msd.f90
 unwrap: unwrap_PBC.f90
 	ifort unwrap_PBC.f90 -o bin/unwrap_PBC.x -O3 -stand f95
 
+unwrap_cell: unwrap_PBC_cell.f90
+	ifort unwrap_PBC_cell.f90 -o bin/unwrap_PBC_cell.x -O3 -stand f95
+
 wrap: wrap_PBC.f90
 	ifort wrap_PBC.f90 -o bin/unwrap_PBC.x -O3 -stand f95
 

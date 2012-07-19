@@ -110,7 +110,7 @@
             goto 70
           endif
           write(2,*) natoms(i)
-          write(2,*) timesteps(i)
+          write(2,*) ax, ay, az
           do j=1,natoms(i)
             ! Convert back to Cartesian coordinates (re-shift origin)
             Rx(i,j) = (Rx(i,j) - 0.5) * ax
