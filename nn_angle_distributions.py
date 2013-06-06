@@ -12,7 +12,7 @@
 
 import sys
 import commands
-import numpy
+imp ort numpy
 import string
 
 
