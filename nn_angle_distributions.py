@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#!/usr/bin/env python
 
 # This is the second generation of this code. In the original version, all 
 # angles were calculed, up to some max. This means that angles between the 
@@ -45,7 +45,7 @@ cnnFile = open(input_filename, 'r')
 for i in range(10):
     cnnFile.readline()	# skip 10 info lines
 
-number_of_particles = int(commands.getoutput('grep number_of_particles ' + input_filename).split()[3])
+number_of_particles = int(commands.getoutput('grep natom ' + input_filename).split()[3])
 number_of_snapshots = number_of_lines/(number_of_particles)         
 number_of_neighbours = int(number_of_particles - 1)
 
