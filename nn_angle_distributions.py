@@ -12,7 +12,7 @@
 
 import sys
 import commands
-imp ort numpy
+import numpy
 import string
 
 
@@ -123,6 +123,6 @@ while s < number_of_snapshots:
 
     outputFile_nn_angle.close()
 
-#    print s    
+    print s    
 
     s += snapshot_stride
