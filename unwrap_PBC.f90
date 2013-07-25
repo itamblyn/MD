@@ -18,7 +18,7 @@
         parameter (n=100000,m=512)
         integer natoms(n), timesteps(n)
         character(2) typat(n,m)
-        character(128) fin
+        character(128) fin, dummy
         real(4) Rx(n,m),Ry(n,m),Rz(n,m)
         real(4) dx(n,m),dy(n,m),dz(n,m),dRx,dRy,dRz
         real(4) a, ax, ay, az
@@ -109,7 +109,7 @@
             goto 70
           endif
           write(2,*) natoms(i)
-          write(2,*) timesteps(i)
+          write(2,*) dummy !timesteps(i)
           do j=1,natoms(i)
             ! Convert back to Cartesian coordinates (re-shift origin)
             Rx(i,j) = (Rx(i,j) - 0.5) * ax

@@ -14,7 +14,7 @@ real*8 X(maxAtoms), Y(maxAtoms), Z(maxAtoms)
 real*8 ax, ay, az, dx, dy, dz, r, binsize
 real*8 hist(maxWrite,maxBins), input_value(3)
 character*2 typat(maxAtoms)
-character*128 fxyz
+character*128 fxyz, dummy
 
 ! Retrieve user input
 write(*,*) "TRAJEC.xyz file:"
@@ -63,7 +63,7 @@ do i = 1, maxSteps
 
   ! Read natom and tstep from xyz file
   read(1,*,END=100) natom
-  read(1,*) tstep
+  read(1,*) dummy
 
   ! Read in trajectories
   do j = 1, natom

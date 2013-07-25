@@ -1,3 +1,6 @@
+cbn: cbn_from_xyz.f90
+	gfortran cbn_from_xyz.f90 -o bin/cbn_from_xyz.x
+
 msd: msd.f90
 	gfortran msd.f90 -o bin/msd.x
 

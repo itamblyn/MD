@@ -18,7 +18,7 @@
         real*8 dx, dy, dz, dr, sanity
         real*8 input_value(3), distance, minimum_distance
         character*2 typat(1024)
-        character*128 fxyz
+        character*128 fxyz, dummy
 
         ! Get the xyz filename and alat from the user
         write(*,*) 'Name of xyz file'
@@ -36,7 +36,7 @@
         do i=1,n
 
           read(1,*,END=100) natom
-          read(1,*) tstep
+          read(1,*) dummy ! tstep
           Nsteps = Nsteps + 1
 
           do j=1,natom
