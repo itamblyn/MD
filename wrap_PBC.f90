@@ -11,10 +11,11 @@
         ! n = max # of timesteps, m = max # of atoms
         integer n, i, j
         parameter (n=1000000)
-        integer natom, timestep
+        integer natom
         real(8) x, y, z
         real(8) ax, ay, az
         character(2) typat
+        character(128) dummy
         character(128) fin
 
         ! Get xyz fname & lattice constants from the user
@@ -32,9 +33,9 @@
 
           ! Read and write natom and timestep
           read(1,*,END=100) natom
-          read(1,*) timestep
+          read(1,*) dummy
           write(2,*) natom
-          write(2,*) timestep
+          write(2,*) i 
 
           do j=1,natom
 
