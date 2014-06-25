@@ -15,7 +15,7 @@
         ! Declare all required variables
         ! n = max # of timesteps, m = max # of atoms
         integer n, m, i, j, k
-        parameter (n=100000,m=512)
+        parameter (n=100000,m=768)
         integer natoms(n), timesteps(n)
         character(2) typat(n,m)
         character(128) fin, dummy
